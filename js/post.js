@@ -62,7 +62,7 @@ async function init() {
 
         // Update page title
         const title = frontmatter.title || meta.title || 'Untitled';
-        document.title = `${title} — cray.blog`;
+        document.title = `${title} — cray_gitbook`;
 
         // Render page
         renderPost(meta, frontmatter, content);

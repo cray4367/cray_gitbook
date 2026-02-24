@@ -1,4 +1,4 @@
-# cray.blog — Personal Portfolio & Blog
+# cray_gitbook — Personal Portfolio & Blog
 
 A free, static GitHub Pages site for security writeups, articles, and portfolio showcase. No build tools, no server needed.
 
@@ -6,8 +6,8 @@ A free, static GitHub Pages site for security writeups, articles, and portfolio 
 
 ```bash
 # Clone and serve locally
-git clone https://github.com/yourusername/cray_blogs.git
-cd cray_blogs
+git clone https://github.com/yourusername/cray_gitbook.git
+cd cray_gitbook
 python3 -m http.server 8080
 # Open http://localhost:8080
 ```
@@ -65,12 +65,12 @@ That's it — your post will appear on the site automatically.
 1. Push to GitHub
 2. Go to **Settings → Pages**
 3. Source: **Deploy from branch** → `main` / `root`
-4. Your site will be live at `https://yourusername.github.io/cray_blogs/`
+4. Your site will be live at `https://yourusername.github.io/cray_gitbook/`
 
 ## 📁 Project Structure
 
 ```
-cray_blogs/
+cray_gitbook/
 ├── index.html          # Home page
 ├── blog.html           # Blog listing
 ├── post.html           # Post reader
@@ -91,7 +91,7 @@ cray_blogs/
 - **Name / bio:** Edit `index.html` hero section and `about.html`
 - **Social links:** Search for `https://github.com/` and replace throughout
 - **Colors:** Edit CSS custom properties at top of `css/style.css`
-- **Site title:** Change `cray.blog` in all HTML files
+- **Site title:** Change `cray_gitbook` in all HTML files
 
 ## 🛠 Tech Stack
 
