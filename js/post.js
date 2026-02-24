@@ -220,12 +220,21 @@ function showError(msg) {
 }
 
 // ─── Helpers ──────────────────────────────────────────────────────
-function formatDate(dateStr) {
-    if (!dateStr) return '';
+function formatDate(dateVal) {
+    if (!dateVal) return '';
     try {
-        const d = new Date(String(dateStr) + 'T00:00:00');
+        let d;
+        // js-yaml parses bare YAML dates (2026-02-20) as JS Date objects
+        if (dateVal instanceof Date) {
+            d = dateVal;
+        } else {
+            // String: strip time portion and force noon to avoid timezone shifts
+            const clean = String(dateVal).replace(/T.*$/, '');
+            d = new Date(clean + 'T12:00:00');
+        }
+        if (isNaN(d.getTime())) return String(dateVal);
         return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-    } catch { return String(dateStr); }
+    } catch { return String(dateVal); }
 }
 
 function escHtml(str = '') {
