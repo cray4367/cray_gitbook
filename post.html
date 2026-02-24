@@ -5,25 +5,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Post — cray_gitbook</title>
-    <meta name="description" content="Read post on cray_gitbook" />
     <link rel="stylesheet" href="css/style.css" />
-    <!-- highlight.js for syntax highlighting -->
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" />
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <!-- marked.js for Markdown parsing -->
     <script defer src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
-    <!-- js-yaml for frontmatter -->
     <script defer src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
     <script defer src="js/post.js"></script>
 </head>
 
 <body>
 
-    <!-- ========== NAVIGATION ========== -->
     <nav class="nav" id="nav">
         <div class="nav-inner">
-            <a href="index.html" class="nav-logo">cray_gitbook</a>
+            <a href="index.html" class="nav-logo">cray_<span>gitbook</span></a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="blog.html">Blog</a></li>
@@ -35,72 +30,49 @@
         </div>
     </nav>
 
-    <!-- ========== CONTENT ========== -->
     <div class="page-wrapper">
-
-        <!-- Loading state -->
-        <div id="loadingState" class="state-box" style="padding-top: 8rem;">
+        <div id="loadingState" class="state-box" style="padding-top:8rem;">
             <div class="state-icon">⏳</div>
             <div class="state-msg">Loading post…</div>
         </div>
 
-        <!-- Error state -->
-        <div id="errorState" class="state-box hidden" style="padding-top: 8rem;">
-            <div class="state-icon">💀</div>
+        <div id="errorState" class="state-box hidden" style="padding-top:8rem;">
+            <div class="state-icon">⚠️</div>
             <div class="state-msg" id="errorMsg">Post not found</div>
-            <div class="state-sub">Check the URL or <a href="blog.html" style="color:var(--accent-primary);">browse all
-                    posts</a>.</div>
+            <div class="state-sub"><a href="blog.html" style="color:var(--accent)">← Browse all posts</a></div>
         </div>
 
-        <!-- Post layout (shown after load) -->
         <div id="postLayout" class="post-layout hidden">
-
-            <!-- Main content -->
             <main>
-                <a href="blog.html" class="back-btn">
-                    ← Back to Blog
-                </a>
-
+                <a href="blog.html" class="back-btn">← Back to Blog</a>
                 <header class="post-header">
-                    <div class="post-meta-row" id="postMetaRow">
-                        <!-- Filled by JS: badge + tags -->
-                    </div>
+                    <div class="post-meta-row" id="postMetaRow"></div>
                     <h1 class="post-title" id="postTitle"></h1>
-                    <div class="post-meta-row" id="postMetaBottom">
-                        <!-- Date, read time -->
-                    </div>
+                    <div class="post-meta-row" id="postMetaBottom"></div>
                 </header>
-
-                <!-- Rendered markdown goes here -->
                 <article class="post-content" id="postContent"></article>
             </main>
 
-            <!-- Sidebar TOC -->
             <aside class="toc-sidebar" id="tocSidebar">
                 <div class="toc-card">
-                    <div class="toc-title">Contents</div>
+                    <div class="toc-label">Contents</div>
                     <ul class="toc-list" id="tocList"></ul>
                 </div>
             </aside>
-
         </div>
     </div>
 
-    <!-- ========== FOOTER ========== -->
     <footer class="footer">
         <div class="footer-inner">
-            <span class="nav-logo" style="font-size: 1.1rem;">cray_gitbook</span>
-            <div class="footer-copy">&copy; 2026 Akshat. Built with love &amp; GitHub Pages.</div>
+            <span class="nav-logo" style="font-size:1rem;">cray_<span style="color:var(--accent)">gitbook</span></span>
+            <div class="footer-copy">&copy; 2026 cray_gitbook</div>
         </div>
     </footer>
 
     <script>
-        // Nav toggle
-        document.getElementById('navToggle').addEventListener('click', function () {
-            document.getElementById('navLinks').classList.toggle('open');
-        });
+        document.getElementById('navToggle').addEventListener('click', () =>
+            document.getElementById('navLinks').classList.toggle('open'));
     </script>
-
 </body>
 
 </html>

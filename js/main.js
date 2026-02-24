@@ -17,6 +17,9 @@ async function loadPosts() {
     // Sort by date descending
     allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
+    // Notify home page for stats
+    if (typeof window._onPostsLoaded === 'function') window._onPostsLoaded(allPosts);
+
     // Render wherever needed
     if (document.getElementById('featuredPosts')) renderFeatured();
     if (document.getElementById('postsGrid')) renderAll();

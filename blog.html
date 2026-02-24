@@ -5,22 +5,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blog — cray_gitbook</title>
-    <meta name="description"
-        content="All articles and CTF writeups by Akshat — covering blue team security, cryptography, web exploits, and more." />
+    <meta name="description" content="All posts — CTF writeups, security research, and informational articles." />
     <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
 
-    <!-- ========== NAVIGATION ========== -->
     <nav class="nav" id="nav">
         <div class="nav-inner">
-            <a href="index.html" class="nav-logo">cray_gitbook</a>
+            <a href="index.html" class="nav-logo">cray_<span>gitbook</span></a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="blog.html" class="active">Blog</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="blog.html" class="nav-cta">Read Posts →</a></li>
             </ul>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
                 <span></span><span></span><span></span>
@@ -28,29 +25,22 @@
         </div>
     </nav>
 
-    <!-- ========== PAGE HEADER ========== -->
     <div class="page-wrapper">
-        <div class="container" style="padding-top: 3.5rem; padding-bottom: 1rem;">
-            <span class="section-tag">The Blog</span>
-            <h1 class="section-title" style="text-align: left; margin-top: 0.75rem; margin-bottom: 0.5rem;">
-                All Posts
-            </h1>
-            <p style="color: var(--text-secondary); font-size: 1rem;">
-                CTF writeups, security research, and informational articles.
-            </p>
+        <div class="container" style="padding-top: 3rem; padding-bottom: 0.5rem;">
+            <span class="section-eyebrow">Archive</span>
+            <h1 class="section-title" style="text-align:left; margin-top:0.5rem;">All Posts</h1>
+            <p class="section-sub">CTF writeups, research notes, and informational articles.</p>
         </div>
 
-        <!-- ========== SEARCH & FILTERS ========== -->
-        <div class="container" style="padding-bottom: 0;">
+        <div class="container" style="padding-top: 1.75rem;">
             <div class="search-area">
                 <div class="search-bar">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="11" cy="11" r="8" />
                         <path d="m21 21-4.35-4.35" />
                     </svg>
-                    <input type="text" class="search-input" id="searchInput"
-                        placeholder="Search posts by title, tag, or description…" autocomplete="off" />
+                    <input type="text" class="search-input" id="searchInput" placeholder="Search posts…"
+                        autocomplete="off" />
                 </div>
                 <div class="filter-tabs" id="filterTabs">
                     <button class="filter-tab active" data-category="all">All</button>
@@ -60,46 +50,38 @@
             </div>
         </div>
 
-        <!-- ========== POSTS LISTING ========== -->
         <div class="container section-sm">
-            <div id="postCount" style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;"></div>
+            <div id="postCount" style="font-size:0.82rem; color:var(--text-muted); margin-bottom:1.25rem;"></div>
             <div class="posts-grid" id="postsGrid">
-                <div class="post-card skeleton" style="height: 220px;"></div>
-                <div class="post-card skeleton" style="height: 220px;"></div>
-                <div class="post-card skeleton" style="height: 220px;"></div>
+                <div class="skeleton" style="height:200px; border-radius:12px;"></div>
+                <div class="skeleton" style="height:200px; border-radius:12px;"></div>
             </div>
             <div id="emptyState" class="state-box hidden">
                 <div class="state-icon">🔍</div>
                 <div class="state-msg">No posts found</div>
-                <div class="state-sub">Try a different search term or category filter.</div>
+                <div class="state-sub">Try a different search term or category.</div>
             </div>
         </div>
     </div>
 
-    <!-- ========== FOOTER ========== -->
     <footer class="footer">
         <div class="footer-inner">
-            <span class="nav-logo" style="font-size: 1.1rem;">cray_gitbook</span>
+            <span class="nav-logo" style="font-size:1rem;">cray_<span style="color:var(--accent)">gitbook</span></span>
             <div class="footer-links">
-                <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
-                <a href="https://linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://github.com/cray4367" target="_blank" rel="noopener">GitHub</a>
                 <a href="about.html">About</a>
             </div>
-            <div class="footer-copy">&copy; 2026 Akshat. Built with love &amp; GitHub Pages.</div>
+            <div class="footer-copy">&copy; 2026 cray_gitbook</div>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
     <script>
-        // Nav toggle
-        document.getElementById('navToggle').addEventListener('click', function () {
-            document.getElementById('navLinks').classList.toggle('open');
-        });
-        document.addEventListener('click', function (e) {
+        document.getElementById('navToggle').addEventListener('click', () =>
+            document.getElementById('navLinks').classList.toggle('open'));
+        document.addEventListener('click', e => {
             if (!e.target.closest('.nav')) document.getElementById('navLinks').classList.remove('open');
         });
-
-        // Filter tabs
         document.querySelectorAll('.filter-tab').forEach(tab => {
             tab.addEventListener('click', function () {
                 document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
@@ -107,8 +89,6 @@
                 applyFilters();
             });
         });
-
-        // Search
         document.getElementById('searchInput').addEventListener('input', applyFilters);
     </script>
 </body>
