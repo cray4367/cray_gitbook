@@ -1,0 +1,29 @@
+[
+  {
+    "id": "blue-team-intro",
+    "title": "Getting Started with Blue Team Security Operations",
+    "date": "2026-02-24",
+    "category": "article",
+    "tags": ["blue-team", "siem", "beginner", "soc"],
+    "description": "An introductory guide to blue team operations — what a SOC analyst does, essential tools, and how to start learning.",
+    "file": "posts/blue-team-intro.md"
+  },
+  {
+    "id": "ctf-web-sqli",
+    "title": "CTF Writeup: SQL Injection — Breaking the Login Wall",
+    "date": "2026-02-20",
+    "category": "ctf",
+    "tags": ["web", "sql-injection", "ctf", "owasp"],
+    "description": "Step-by-step walkthrough of a web exploitation CTF challenge involving classic SQL injection and blind SQLi.",
+    "file": "posts/ctf-web-sqli.md"
+  },
+  {
+    "id": "rsa-crypto-basics",
+    "title": "RSA Cryptography Explained — From Math to Attack",
+    "date": "2026-02-15",
+    "category": "article",
+    "tags": ["cryptography", "rsa", "math", "ctf"],
+    "description": "Breaking down the RSA algorithm from first principles — how it works, why it's secure, and common CTF attack patterns.",
+    "file": "posts/rsa-crypto-basics.md"
+  }
+]

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cray.blog — Security Research & Writeups</title>
+  <meta name="description" content="Personal blog covering CTF writeups, cybersecurity research, and informational articles on blue-team security." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ========== NAVIGATION ========== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">cray.blog</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="blog.html" class="nav-cta">Read Posts →</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-badge">Available for opportunities</div>
+      <h1 class="hero-title">
+        Hi, I'm <span class="name">Akshat</span><br/>
+        Security Researcher
+      </h1>
+      <p class="hero-desc">
+        I write about cybersecurity, CTF challenges, blue-team operations, and 
+        informational articles on topics I find fascinating. 
+        This is my corner of the internet.
+      </p>
+      <div class="hero-actions">
+        <a href="blog.html" class="btn btn-primary">Read the Blog</a>
+        <a href="about.html" class="btn btn-ghost">About Me</a>
+      </div>
+
+      <div class="hero-stats" id="heroStats">
+        <div class="hero-stat">
+          <div class="hero-stat-value" id="statPosts">—</div>
+          <div class="hero-stat-label">Posts Published</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value" id="statCtf">—</div>
+          <div class="hero-stat-label">CTF Writeups</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value" id="statArticles">—</div>
+          <div class="hero-stat-label">Articles</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-avatar">🛡️</div>
+  </div>
+</section>
+
+<!-- ========== FEATURED POSTS ========== -->
+<section class="section" style="padding-top: 1rem;">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Latest</span>
+      <h2 class="section-title">Recent Posts</h2>
+      <p class="section-desc">Fresh writeups, research, and articles straight from the lab.</p>
+    </div>
+    <div class="posts-grid" id="featuredPosts">
+      <!-- Skeletons while loading -->
+      <div class="post-card skeleton" style="height: 200px;"></div>
+      <div class="post-card skeleton" style="height: 200px;"></div>
+      <div class="post-card skeleton" style="height: 200px;"></div>
+    </div>
+    <div style="text-align:center; margin-top: 2.5rem;">
+      <a href="blog.html" class="btn btn-ghost">View All Posts →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== QUICK ABOUT ========== -->
+<section class="section" style="background: var(--bg-surface);">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+      <div>
+        <span class="section-tag">About Me</span>
+        <h2 class="section-title" style="text-align: left; margin-bottom: 1rem;">
+          Security analyst, CTF player, and writer
+        </h2>
+        <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
+          I'm passionate about understanding how systems work and how they can be broken. 
+          I compete in CTFs, study for certifications like SC-200, and document everything 
+          I learn along the way. This blog is where I make those notes public.
+        </p>
+        <div class="tech-chips">
+          <span class="tech-chip">🐧 Linux</span>
+          <span class="tech-chip">🔵 Blue Team</span>
+          <span class="tech-chip">🔐 Cryptography</span>
+          <span class="tech-chip">🌐 Web Security</span>
+          <span class="tech-chip">📊 SIEM</span>
+          <span class="tech-chip">🏴 CTF</span>
+          <span class="tech-chip">🐍 Python</span>
+          <span class="tech-chip">🔍 OSINT</span>
+        </div>
+        <br/>
+        <a href="about.html" class="btn btn-outline">Full Portfolio →</a>
+      </div>
+      <div class="skills-grid" style="grid-template-columns: repeat(2, 1fr);">
+        <div class="skill-card">
+          <div class="skill-card-icon">🏴</div>
+          <div class="skill-card-name">CTF Competition</div>
+          <div class="skill-card-desc">Web, Crypto, Forensics, Reverse Engineering</div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card-icon">🔵</div>
+          <div class="skill-card-name">Blue Team Ops</div>
+          <div class="skill-card-desc">Incident response, SIEM, threat detection</div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card-icon">📝</div>
+          <div class="skill-card-name">Technical Writing</div>
+          <div class="skill-card-desc">Clear, structured writeups and articles</div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card-icon">🛡️</div>
+          <div class="skill-card-name">Security Research</div>
+          <div class="skill-card-desc">Vulnerability analysis &amp; documentation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <span class="nav-logo" style="font-size: 1.1rem;">cray.blog</span>
+    <div class="footer-links">
+      <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 Akshat. Built with love &amp; GitHub Pages.</div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  // Nav toggle for mobile
+  document.getElementById('navToggle').addEventListener('click', function() {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+
+  // Close on outside click
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.nav')) {
+      document.getElementById('navLinks').classList.remove('open');
+    }
+  });
+
+  // Scroll: shrink nav
+  window.addEventListener('scroll', function() {
+    document.getElementById('nav').style.background = 
+      window.scrollY > 10 ? 'rgba(8,11,18,0.97)' : 'rgba(8,11,18,0.85)';
+  });
+</script>
+</body>
+</html>
