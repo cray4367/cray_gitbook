@@ -1,14 +1,60 @@
 [
     {
+        "id": "splunk-lab-part-1",
+        "title": "SIEM Investigation: Splunk Lab — Part 1",
+        "date": "2025-05-01",
+        "category": "article",
+        "tags": ["splunk", "siem", "blue-team", "spl"],
+        "description": "Walking through Splunk architecture, SPL basics, and setting up your first SIEM investigation — from forwarders to search heads.",
+        "file": "content/Blogs/1 Lab Splunk- Part 1.md",
+        "imageBase": "content/Blogs/attachment/"
+    },
+    {
+        "id": "detection-in-splunk",
+        "title": "Detection in Splunk: Credential Dumping & C2 Activity",
+        "date": "2025-11-01",
+        "category": "article",
+        "tags": ["splunk", "siem", "threat-detection", "spl", "lolbins", "blue-team"],
+        "description": "Hands-on detection of LSASS credential dumping via LOLBins (rundll32.exe) and tracing a full attack chain from fileless PowerShell malware to C2 callback using Sysmon event logs.",
+        "file": "content/Blogs/Detection in Splunk.md",
+        "imageBase": "content/Blogs/attachment/"
+    },
+    {
+        "id": "htb-sherlock-holmes2",
+        "title": "HTB Sherlock: The Watchman's Residue (Holmes 2025-2)",
+        "date": "2025-12-01",
+        "category": "ctf",
+        "tags": ["htb", "sherlock", "forensics", "blue-team", "dfir"],
+        "description": "A detailed walkthrough of the HTB Sherlock challenge — Holmes 2025-2: The Watchman's Residue. Covers DFIR investigation methodology.",
+        "file": "content/Sherlocks/Holmes 2/Holmes 2025 2 The Watchman's Residue.md",
+        "imageBase": "content/Sherlocks/Holmes 2/attachment/"
+    },
+    {
+        "id": "htb-sherlock-mangobleed",
+        "title": "HTB Sherlock: MangoBleed",
+        "date": "2025-09-01",
+        "category": "ctf",
+        "tags": ["htb", "sherlock", "forensics", "blue-team"],
+        "description": "Walkthrough of the HTB MangoBleed Sherlock challenge — a digital forensics investigation.",
+        "file": "content/Sherlocks/Mangobleed/mangobleed.md",
+        "imageBase": "content/Sherlocks/Mangobleed/attachment/"
+    },
+    {
+        "id": "htb-sherlock-whisper",
+        "title": "HTB Sherlock: Whisper",
+        "date": "2025-10-01",
+        "category": "ctf",
+        "tags": ["htb", "sherlock", "forensics", "dfir", "blue-team"],
+        "description": "Deep-dive walkthrough of the HTB Whisper Sherlock challenge, covering memory forensics and artifact analysis.",
+        "file": "content/Sherlocks/Whisper/htb_whisper.md",
+        "imageBase": "content/Sherlocks/Whisper/attachment/"
+    },
+    {
         "id": "obsidian-import-guide",
         "title": "How to Import Obsidian Notes as Blog Posts",
         "date": "2026-02-24",
         "category": "article",
-        "tags": [
-            "obsidian",
-            "workflow",
-            "setup"
-        ],
+        "tags": ["obsidian", "workflow", "setup"],
         "description": "A step-by-step guide to publishing your Obsidian notes on cray_gitbook — handling images, wikilinks, and frontmatter.",
         "file": "posts/obsidian-import-guide.md"
     }

@@ -103,21 +103,26 @@ function renderPost(meta, fm, content) {
         breaks: false,
     });
 
-    // Resolve image paths relative to the post's directory
-    // e.g. posts/images/foo.png → the img src should stay as-is since it's relative to root
-    const postDir = (meta.file || '').replace(/\/[^/]+$/, '/'); // e.g. "posts/"
+    // Resolve image paths relative to the post's directory.
+    // Posts from Blogs-and-Writeups use attachment/foo.png — resolved via meta.imageBase.
+    const postDir = (meta.file || '').replace(/\/[^/]+$/, '/'); // e.g. "content/Blogs/"
+    const imageBase = meta.imageBase || postDir; // fallback for legacy posts
 
     // Custom renderer to fix image paths and add classes
     const renderer = new marked.Renderer();
 
     renderer.image = function (href, title, alt) {
-        // If href is relative (doesn't start with http/https/data), prepend post dir
         let resolvedSrc = href;
         if (!/^(https?:\/\/|data:|\/)/i.test(href)) {
-            resolvedSrc = postDir + href;
+            // attachment/ pattern → use the post's imageBase directory
+            if (href.startsWith('attachment/')) {
+                resolvedSrc = imageBase + href.replace(/^attachment\//, '');
+            } else {
+                resolvedSrc = postDir + href;
+            }
         }
         const titleAttr = title ? ` title="${escHtml(title)}"` : '';
-        return `<img src="${escHtml(resolvedSrc)}" alt="${escHtml(alt || '')}"${titleAttr} loading="lazy" />`;
+        return `<img src="${escHtml(resolvedSrc)}" alt="${escHtml(alt || '')}"${titleAttr} loading="lazy" style="max-width:100%;border-radius:8px;margin:1.25rem 0;box-shadow:var(--shadow-sm);" />`;
     };
 
     // Wrap tables for horizontal scroll
