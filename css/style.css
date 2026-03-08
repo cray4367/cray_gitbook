@@ -1,5 +1,6 @@
 /* ===========================================
-   CRAY GITBOOK — Light Professional Theme
+   CRAY GITBOOK — Professional Theme
+   Light + Dark Mode
    =========================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Lora:wght@600;700&display=swap');
@@ -54,6 +55,46 @@
   --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.07), 0 1px 2px rgba(15, 23, 42, 0.04);
   --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
   --shadow-lg: 0 8px 28px rgba(15, 23, 42, 0.12);
+}
+
+/* -------------------------------------------
+   Dark Mode Tokens
+   ------------------------------------------- */
+[data-theme="dark"] {
+  /* Backgrounds */
+  --bg-base: #0d1117;
+  --bg-surface: #161b22;
+  --bg-elevated: #1c2128;
+  --bg-card: #161b22;
+  --bg-hover: #21262d;
+
+  /* Accent stays recognisable — slightly lighter in dark */
+  --accent: #60a5fa;
+  --accent-hover: #93c5fd;
+  --accent-muted: rgba(96, 165, 250, 0.1);
+  --accent-border: rgba(96, 165, 250, 0.25);
+
+  /* Status */
+  --green: #4ade80;
+  --amber: #fbbf24;
+  --red: #f87171;
+  --violet: #a78bfa;
+
+  /* Text */
+  --text-primary: #e6edf3;
+  --text-secondary: #8b949e;
+  --text-muted: #484f58;
+  --text-inverse: #0d1117;
+
+  /* Borders */
+  --border: #30363d;
+  --border-strong: #3d444d;
+  --border-accent: rgba(96, 165, 250, 0.3);
+
+  /* Shadows (darker for dark bg) */
+  --shadow-sm: 0 1px 3px rgba(1, 4, 9, 0.4);
+  --shadow-md: 0 4px 12px rgba(1, 4, 9, 0.5);
+  --shadow-lg: 0 8px 28px rgba(1, 4, 9, 0.7);
 }
 
 /* -------------------------------------------
@@ -127,6 +168,11 @@ button {
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+[data-theme="dark"] .nav {
+  background: rgba(13, 17, 23, 0.92);
 }
 
 .nav-inner {
@@ -189,6 +235,44 @@ button {
 
 .nav-cta:hover {
   background: var(--accent-hover) !important;
+}
+
+/* Dark Mode Toggle Button */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--t);
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent-border);
+  background: var(--accent-muted);
+}
+
+.theme-toggle .icon-moon {
+  display: block;
+}
+
+.theme-toggle .icon-sun {
+  display: none;
+}
+
+[data-theme="dark"] .theme-toggle .icon-moon {
+  display: none;
+}
+
+[data-theme="dark"] .theme-toggle .icon-sun {
+  display: block;
 }
 
 .nav-toggle {
@@ -1323,6 +1407,7 @@ button {
     padding: 0.75rem 1.25rem 1.25rem;
     border-bottom: 1px solid var(--border);
     box-shadow: var(--shadow-md);
+    z-index: 99;
   }
 
   .nav-toggle {
