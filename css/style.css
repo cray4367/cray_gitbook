@@ -899,6 +899,8 @@ button {
   color: var(--text-secondary);
   line-height: 1.85;
   font-size: 1.02rem;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .post-content h1,
@@ -1390,7 +1392,7 @@ button {
   }
 
   .post-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     padding: 2rem 1.25rem 4rem;
   }
 
