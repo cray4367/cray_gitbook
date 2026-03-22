@@ -1394,6 +1394,10 @@ button {
     padding: 2rem 1.25rem 4rem;
   }
 
+  .post-layout main {
+    grid-column: 1;
+  }
+
   .side-widget {
     display: none;
   }
