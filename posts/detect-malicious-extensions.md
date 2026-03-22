@@ -1,5 +1,8 @@
+## Introduction
 The main reference i would be taking from is basically using a lab from cyberdefenders named FakeGPT
 I will be taking a general extension approach for basically checking how we can check malicious browser extensions then we will be proceeding towards the attacks techniques which are basically used in this lab.
+
+## Extension Source
 For the downloading tutorial i will basically be utilizing google translate extension
 ![](attachment/11ae855ba244861b9f93ddbb4e4dfcdb.png)
 Here in the address bar we find a URL we need to copy this and we can basically head over to a crx downloader to download this extension
@@ -19,10 +22,13 @@ Since rename it as zip file so we can extract it
 Now basically unzip the zip file 
 You will now be having the extension files
 
+## Initial Analysis
 For this tutorial i will be analysing the fakegpt extension which is basically provided by the cyberdefenders platform.
 https://cyberdefenders.org/blueteam-ctf-challenges/fakegpt/
 
 Now we have to download and extract the zip file so that we can get the files of the malicious extension
+
+## Static Analysis
 Let us first look at the html file if we find something interesting
 This is basically just some basic HTML nothing interesting so we can basically move on to exploring other files which could be of our interest.
 Now we also the manifest file here this is basically referred to as the brain of the extension so this can reveal some interesting information about the working of the extension basically
@@ -47,9 +53,11 @@ This one is interesting we are basically having a vm check setup
 ![](attachment/db46df46489b1d48f4aafa670871ef03.png)
 This is not fullproof or not very good but is good for basic malicious extensions
 
+## MITRE ATT&CK Mapping
 Now let us try to map the attack scenerio with MITRE ATT&CK
 ![](attachment/959666133bde8f2ed16cb6be42f24e91.png)
 
+## Initial Access
 Let us start with the Initial access phase 
 Here the user basically installs a malicious extension try to mimic chatgpt
 So we can map it to user execution phase
@@ -58,6 +66,8 @@ Now we have to find the sub-technique which the attacker basically used
 If we basically move to malicious files section in this category
 ![](attachment/1498574f399907054725b45fb5b9d10f.png)
 We now have the attack ID and technique involved
+
+## Defense Evasion
 Now let us move to how the attacker is basically trying to evade the defenses where we found it related to the virtualization so let us move to MITRE ATT&CK framework and try mapping that again
 These are the techniques and subtechniques used by the attacker to detect the sandbox environment
 ![](attachment/6340c6eadf8da75608a15f68060144f7.png)
@@ -68,11 +78,14 @@ For the subtechnique it basically is
 Even though the decoded output is not particulary malicious but is still hidden and used to perform some malicious process so it would be feasible to putting it here in this subcategory
 as far as the cryptographic part is concerned we can map that 
 T1027.002
+
+## Discovery
 Now if we check for the discovery what information it has basically tried to get about the system, it basically uses reads `navigator.userAgent` and `navigator.plugins` to profile the environment we can see that in the extension code
 
 So we can basically map it this 
 ![](attachment/09cacf54d69188a4043ac95e4ef5773b.png)
 
+## Collection
 Now for the data accessing part it basically logged keystrokes on facebook.com and basically cookies which we already analysed in the extension code
 Also in the ' app.js ' file we also see that there is basically a event which is capturing keystrokes
 ![](attachment/e55d5770fea45a5a6fcfd90859c356a9.png)
@@ -85,12 +98,16 @@ Now what this basically is doing that setting the username and password to some 
 Here also the main function is credential access so we need to map it into that category
 Here it closely aligns to two categories one is basically T1555.003 and T1056.003 but here we will be mapping it to as the browser passwords are not compromised at this point this is basically just a captive portal where a keylogging service is basically set up.
 ![](attachment/8283a346d01476150fa7a3a4f53c11e6.png)
+
+## Exfiltration
 Now for the last phase basically how this data is being exfilterated
 This part of code in the app.js basically defines how data is being exfilterated
 ![](attachment/aca2b638d9a9c96d8a4e69cd274db3d1.png)
 The encoded data which we already using MITRE ATT&CK framework is being transmitted in basically url parameter using img.src 
 Now if we try to map this particular technique
 ![](attachment/eedaa45b7864222ec2596fb845809176.png) Since this is being sent using the normal website by just something like url parameter of img. So we can basically map it to T1041 technique
+
+## Conclusion
 Credits for the vulnerable extension: Cyberdefenders
 This is the whole process of the detection of the fakegpt.
 Thank you very much for reading :)
