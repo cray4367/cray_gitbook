@@ -103,5 +103,19 @@
         "description": "A walk-through on detecting malicious browser extensions using the FakeGPT lab from Cyberdefenders.",
         "file": "posts/detect-malicious-extensions.md",
         "imageBase": "posts/attachment/"
+    }, 
+    {
+        "id":"picoctf-2026",
+        "title":"PicoCTF-2026 Forensics Writeups",
+        "date":"2026-03-23",
+        "category":"ctf",
+        "tags":[
+            "forensics",
+            "picoCTF",
+            "Disk-Forensics"
+        ],
+        "description": "These are the writeups for picoCTF-2026 Forensics Category",
+        "file":"posts/PicoCTF-2026-Writeups.md" ,
+        "imageBase":"posts/attachment/"
     }
 ]
