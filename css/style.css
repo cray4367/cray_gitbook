@@ -1047,62 +1047,63 @@ button {
 }
 
 /* -------------------------------------------
-   Table of Contents
+   Sidebar Widget
    ------------------------------------------- */
-.toc-sidebar {
+.side-widget {
   position: sticky;
   top: calc(var(--nav-h) + 1.5rem);
   grid-row: 1;
   grid-column: 1;
 }
 
-.toc-card {
+.widget-card {
   background: var(--bg-surface);
   border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 1.1rem;
+  border-radius: 12px;
+  padding: 1.4rem;
+  box-shadow: var(--shadow-sm);
 }
 
-.toc-label {
-  font-size: 0.7rem;
+.widget-label {
+  font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-muted);
-  margin-bottom: 0.85rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
 }
 
-.toc-list {
-  list-style: none;
+.widget-content {
   display: flex;
   flex-direction: column;
-  gap: 0.05rem;
+  gap: 1.1rem;
 }
 
-.toc-item a {
-  display: block;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  padding: 0.3rem 0.55rem;
-  border-radius: 5px;
-  border-left: 2px solid transparent;
+.recent-post-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
   transition: var(--t);
+}
+
+.recent-post-meta {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.recent-post-title {
+  font-size: 0.88rem;
+  font-weight: 600;
   line-height: 1.4;
+  color: var(--text-secondary);
+  transition: var(--t);
 }
 
-.toc-item a:hover,
-.toc-item a.active {
+.recent-post-item:hover .recent-post-title {
   color: var(--accent);
-  background: var(--accent-muted);
-  border-left-color: var(--accent);
-}
-
-.toc-item.h3 a {
-  padding-left: 1.1rem;
-}
-
-.toc-item.h4 a {
-  padding-left: 1.75rem;
 }
 
 /* -------------------------------------------
@@ -1393,7 +1394,7 @@ button {
     padding: 2rem 1.25rem 4rem;
   }
 
-  .toc-sidebar {
+  .side-widget {
     display: none;
   }
 

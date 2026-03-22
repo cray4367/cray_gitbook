@@ -66,6 +66,9 @@ async function init() {
 
         // Render page
         renderPost(meta, frontmatter, content);
+        
+        // Render recent posts widget
+        renderRecentPosts(posts, postId);
 
     } catch (err) {
         console.error(err);
@@ -155,66 +158,35 @@ function renderPost(meta, fm, content) {
     // Apply hljs to any code blocks not already highlighted
     contentEl.querySelectorAll('pre code:not(.hljs)').forEach(block => hljs.highlightElement(block));
 
-    // Build TOC from headings
-    buildToc(contentEl);
-
     // Show the layout, hide loading
     document.getElementById('loadingState').classList.add('hidden');
     document.getElementById('postLayout').classList.remove('hidden');
-
-    // Scroll spy
-    initScrollSpy();
 }
 
-// ─── Table of Contents ────────────────────────────────────────────
-function buildToc(contentEl) {
-    const headings = contentEl.querySelectorAll('h2, h3, h4');
-    const tocList = document.getElementById('tocList');
-    const sidebar = document.getElementById('tocSidebar');
+// ─── Recent Posts Widget ──────────────────────────────────────────
+function renderRecentPosts(allPosts, currentId) {
+    const container = document.getElementById('recentPostsList');
+    if (!container) return;
 
-    if (headings.length < 2) {
-        sidebar.style.display = 'none';
+    let recent = allPosts.filter(p => p.id !== currentId);
+    recent.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+    recent = recent.slice(0, 3);
+
+    if (recent.length === 0) {
+        const widget = document.getElementById('sideWidget');
+        if (widget) widget.style.display = 'none';
         return;
     }
 
-    headings.forEach((h, i) => {
-        // Ensure heading has an id for anchor navigation
-        if (!h.id) {
-            h.id = `heading-${i}-${h.textContent.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`;
-        }
-
-        const li = document.createElement('li');
-        li.className = `toc-item ${h.tagName.toLowerCase()}`;
-        const a = document.createElement('a');
-        a.href = `#${h.id}`;
-        a.textContent = h.textContent;
-        a.addEventListener('click', e => {
-            e.preventDefault();
-            h.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-        li.appendChild(a);
-        tocList.appendChild(li);
-    });
-}
-
-// ─── TOC Scroll Spy ───────────────────────────────────────────────
-function initScrollSpy() {
-    const tocLinks = document.querySelectorAll('.toc-item a');
-    if (!tocLinks.length) return;
-
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                tocLinks.forEach(l => l.classList.remove('active'));
-                const active = document.querySelector(`.toc-item a[href="#${entry.target.id}"]`);
-                if (active) active.classList.add('active');
-            }
-        });
-    }, { rootMargin: '-10% 0px -85% 0px' });
-
-    document.querySelectorAll('#postContent h2, #postContent h3, #postContent h4').forEach(h => {
-        observer.observe(h);
-    });
+    container.innerHTML = recent.map(p => {
+        const url = `post.html?post=${encodeURIComponent(p.id)}`;
+        return `
+            <a href="${url}" class="recent-post-item">
+                <div class="recent-post-meta">${formatDate(p.date)}</div>
+                <div class="recent-post-title">${escHtml(p.title)}</div>
+            </a>
+        `;
+    }).join('');
 }
 
 // ─── UI States ────────────────────────────────────────────────────
