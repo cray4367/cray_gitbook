@@ -278,13 +278,24 @@ button {
 .nav-toggle {
   display: none;
   flex-direction: column;
-  gap: 4px;
-  padding: 4px;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  /* Minimum 44x44px touch target for accessibility */
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  border-radius: 8px;
+  transition: var(--t);
+}
+
+.nav-toggle:hover {
+  background: var(--bg-elevated);
 }
 
 .nav-toggle span {
   display: block;
-  width: 20px;
+  width: 22px;
   height: 2px;
   background: var(--text-primary);
   border-radius: 2px;
@@ -1344,6 +1355,22 @@ button {
 /* -------------------------------------------
    Responsive
    ------------------------------------------- */
+
+/* About snapshot on index.html — defined as a class so it can respond properly */
+.about-snapshot-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .about-snapshot-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem;
+  }
+}
+
 @media (max-width: 900px) {
   .hero-inner {
     grid-template-columns: 1fr;
@@ -1355,6 +1382,7 @@ button {
 
   .post-layout {
     grid-template-columns: 1fr;
+    padding: 2rem 1.25rem 4rem;
   }
 
   .toc-sidebar {
@@ -1390,6 +1418,30 @@ button {
 
   .hero-meta {
     gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  /* Section padding reduction on mobile */
+  .section {
+    padding: 3rem 0;
+  }
+
+  .section-sm {
+    padding: 1.75rem 0;
+  }
+
+  /* Tables inside posts scroll horizontally on mobile */
+  .post-content table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+
+  .post-content th,
+  .post-content td {
+    white-space: normal;
+    min-width: 100px;
   }
 
   .nav-links {
@@ -1426,5 +1478,28 @@ button {
 
   .hero-actions .btn {
     justify-content: center;
+  }
+
+  /* Hero meta: wrap stats into 2-per-row on very small screens */
+  .hero-meta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  /* Reduce hero vertical space on very small screens */
+  .hero {
+    padding-top: calc(var(--nav-h) + 2.5rem);
+    padding-bottom: 3rem;
+  }
+
+  /* About snapshot section stacks */
+  .about-snapshot-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Container padding tightens on small phones */
+  .container {
+    padding: 0 1rem;
   }
 }
