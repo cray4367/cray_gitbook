@@ -2,7 +2,7 @@
     {
         "id": "splunk-lab-part-1",
         "title": "SIEM Investigation: Splunk Lab — Part 1",
-        "date": "2025-05-01",
+        "date": "2025-08-01",
         "category": "article",
         "tags": ["splunk", "siem", "blue-team", "spl"],
         "description": "Walking through Splunk architecture, SPL basics, and setting up your first SIEM investigation — from forwarders to search heads.",
@@ -12,7 +12,7 @@
     {
         "id": "detection-in-splunk",
         "title": "Detection in Splunk: Credential Dumping & C2 Activity",
-        "date": "2025-11-01",
+        "date": "2026-02-01",
         "category": "article",
         "tags": ["splunk", "siem", "threat-detection", "spl", "lolbins", "blue-team"],
         "description": "Hands-on detection of LSASS credential dumping via LOLBins (rundll32.exe) and tracing a full attack chain from fileless PowerShell malware to C2 callback using Sysmon event logs.",
@@ -22,7 +22,7 @@
     {
         "id": "htb-sherlock-holmes2",
         "title": "HTB Sherlock: The Watchman's Residue (Holmes 2025-2)",
-        "date": "2025-12-01",
+        "date": "2026-03-01",
         "category": "ctf",
         "tags": ["htb", "sherlock", "forensics", "blue-team", "dfir"],
         "description": "A detailed walkthrough of the HTB Sherlock challenge — Holmes 2025-2: The Watchman's Residue. Covers DFIR investigation methodology.",
@@ -32,7 +32,7 @@
     {
         "id": "htb-sherlock-mangobleed",
         "title": "HTB Sherlock: MangoBleed",
-        "date": "2025-09-01",
+        "date": "2026-02-02",
         "category": "ctf",
         "tags": ["htb", "sherlock", "forensics", "blue-team"],
         "description": "Walkthrough of the HTB MangoBleed Sherlock challenge — a digital forensics investigation.",
@@ -42,7 +42,7 @@
     {
         "id": "htb-sherlock-whisper",
         "title": "HTB Sherlock: Whisper",
-        "date": "2025-10-01",
+        "date": "2026-02-01",
         "category": "ctf",
         "tags": ["htb", "sherlock", "forensics", "dfir", "blue-team"],
         "description": "Deep-dive walkthrough of the HTB Whisper Sherlock challenge, covering memory forensics and artifact analysis.",
