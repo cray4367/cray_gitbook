@@ -12,7 +12,7 @@
     {
         "id": "detection-in-splunk",
         "title": "Detection in Splunk: Credential Dumping & C2 Activity",
-        "date": "2026-02-01",
+        "date": "2026-01-01",
         "category": "article",
         "tags": ["splunk", "siem", "threat-detection", "spl", "lolbins", "blue-team"],
         "description": "Hands-on detection of LSASS credential dumping via LOLBins (rundll32.exe) and tracing a full attack chain from fileless PowerShell malware to C2 callback using Sysmon event logs.",
@@ -32,7 +32,7 @@
     {
         "id": "htb-sherlock-mangobleed",
         "title": "HTB Sherlock: MangoBleed",
-        "date": "2026-02-02",
+        "date": "2026-02-10",
         "category": "ctf",
         "tags": ["htb", "sherlock", "forensics", "blue-team"],
         "description": "Walkthrough of the HTB MangoBleed Sherlock challenge — a digital forensics investigation.",
