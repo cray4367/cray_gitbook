@@ -57,5 +57,15 @@
         "tags": ["obsidian", "workflow", "setup"],
         "description": "A step-by-step guide to publishing your Obsidian notes on cray_gitbook — handling images, wikilinks, and frontmatter.",
         "file": "posts/obsidian-import-guide.md"
+    },
+    {
+        "id": "malicious-extension",
+        "title": "Detecting malicious browser extensions",
+        "date": "2026-03-20",
+        "category": "article",
+        "tags": ["extension", "cyberdefenders"],
+        "description": "A walk-through on detecting malicious browser extensions using the FakeGPT lab from Cyberdefenders.",
+        "file": "posts/detect-malicious-extensions.md",
+        "imageBase": "posts/attachment/"
     }
 ]
