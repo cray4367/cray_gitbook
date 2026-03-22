@@ -848,12 +848,18 @@ button {
    ------------------------------------------- */
 .post-layout {
   display: grid;
-  grid-template-columns: 1fr 240px;
-  gap: 3rem;
+  grid-template-columns: 240px minmax(0, 720px);
+  justify-content: center;
+  gap: 4rem;
   align-items: start;
-  max-width: 1060px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 3rem 1.5rem 5rem;
+}
+
+.post-layout main {
+  grid-row: 1;
+  grid-column: 2;
 }
 
 .post-header {
@@ -1046,6 +1052,8 @@ button {
 .toc-sidebar {
   position: sticky;
   top: calc(var(--nav-h) + 1.5rem);
+  grid-row: 1;
+  grid-column: 1;
 }
 
 .toc-card {
