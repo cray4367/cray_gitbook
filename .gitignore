@@ -1,0 +1,5 @@
+# AI/tool directories
+.qwen/
+
+# Local test files
+test/
