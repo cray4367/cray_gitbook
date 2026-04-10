@@ -117,5 +117,22 @@
         "description": "These are the writeups for picoCTF-2026 Forensics Category",
         "file":"posts/PicoCTF-2026-Writeups.md" ,
         "imageBase":"posts/attachment/"
+    },
+    {
+        "id": "jojos-hospital-ransomware",
+        "title": "SIEM Investigation: JoJo's Hospital Ransomware & MITRE Mapping",
+        "date": "2026-04-10",
+        "category": "article",
+        "tags": [
+            "siem",
+            "ransomware",
+            "investigation",
+            "kc7cyber",
+            "kql",
+            "blue-team"
+        ],
+        "description": "A full SIEM-based ransomware investigation walkthrough on KC7's JoJo's Hospital lab — tracing initial phishing, Cobalt Strike C2, credential theft, lateral movement, and file encryption using KQL in Microsoft Sentinel.",
+        "file": "posts/jojos-hospital-ransomware.md",
+        "imageBase": "posts/attachment_jojos-hospital-ransomware/"
     }
 ]
