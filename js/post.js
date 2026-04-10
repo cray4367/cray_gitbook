@@ -117,16 +117,17 @@ function renderPost(meta, fm, content) {
     renderer.image = function (href, title, alt) {
         let resolvedSrc = href;
         if (!/^(https?:\/\/|data:|\/)/i.test(href)) {
-            // attachment/ pattern → use the post's imageBase directory
-            if (href.startsWith('attachment/')) {
-                resolvedSrc = imageBase + href.replace(/^attachment\//, '');
+            // attachment/ or attachment_* pattern → use the post's imageBase directory
+            if (href.startsWith('attachment/') || href.startsWith('attachment_')) {
+                // Strip the attachment directory prefix and use imageBase
+                resolvedSrc = imageBase + href.replace(/^attachment[_\/].*\//, '');
             } else {
                 // Any other relative path → resolve from the post's directory
                 resolvedSrc = postDir + href;
             }
         }
         const titleAttr = title ? ` title="${escHtml(title)}"` : '';
-        return `<img src="${escHtml(resolvedSrc)}" alt="${escHtml(alt || '')}"${titleAttr} loading="lazy" style="max-width:100%;border-radius:8px;margin:1.25rem 0;box-shadow:var(--shadow-sm);" />`;
+        return `<img src="${escHtml(resolvedSrc)}" alt="${escHtml(alt || '')}"${titleAttr} loading="lazy" decoding="async" style="max-width:100%;border-radius:8px;margin:1.25rem 0;box-shadow:var(--shadow-sm);" />`;
     };
 
     // Wrap tables for horizontal scroll
