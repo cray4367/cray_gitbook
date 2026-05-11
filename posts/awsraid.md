@@ -95,3 +95,5 @@ index="aws_cloudtrail"   "userIdentity.userName"="helpdesk.luke" "AddUserToGroup
 ```
 
 ![](attachment/Pasted%20image%2020260511134854.png)
+
+Thank You for reading. Stay Tuned for future writeups and blogs.
