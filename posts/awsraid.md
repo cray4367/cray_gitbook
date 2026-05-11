@@ -5,6 +5,7 @@ Your organization utilizes AWS to host critical data and applications. An incide
 
 This is an AWS-based lab focused on data exfiltration and persistence mechanism forensics (available on Cyberdefenders).
 I quite enjoyed solving this, as I am not very familiar with cloud forensics, so this was actually a very good start.
+Link=https://cyberdefenders.org/blueteam-ctf-challenges/awsraid/
 
 **1. Knowing which user account was compromised is essential for understanding the attacker's initial entry point into the environment. What is the username of the compromised user?**
 
