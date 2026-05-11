@@ -134,5 +134,21 @@
         "description": "A full SIEM-based ransomware investigation walkthrough on KC7's JoJo's Hospital lab — tracing initial phishing, Cobalt Strike C2, credential theft, lateral movement, and file encryption using KQL in Microsoft Sentinel.",
         "file": "posts/jojos-hospital-ransomware.md",
         "imageBase": "posts/attachment_jojos-hospital-ransomware/"
+    },
+    {
+        "id": "aws-raid",
+        "title": "AWS Raid: Data Exfiltration & Persistence Mechanism Forensics",
+        "date": "2026-05-11",
+        "category": "article",
+        "tags": [
+            "aws",
+            "cloud-forensics",
+            "cyberdefenders",
+            "splunk",
+            "blue-team"
+        ],
+        "description": "An AWS-based lab walkthrough focused on investigating data exfiltration, compromised accounts, and persistence mechanisms using Splunk queries.",
+        "file": "posts/awsraid.md",
+        "imageBase": "posts/"
     }
 ]
