@@ -120,7 +120,7 @@ function renderPost(meta, fm, content) {
             // attachment/ or attachment_* pattern → use the post's imageBase directory
             if (href.startsWith('attachment/') || href.startsWith('attachment_')) {
                 // Strip the attachment directory prefix and use imageBase
-                resolvedSrc = imageBase + href.replace(/^attachment[_\/].*\//, '');
+                resolvedSrc = imageBase + href.replace(/^attachment[^\/]*\//, '');
             } else {
                 // Any other relative path → resolve from the post's directory
                 resolvedSrc = postDir + href;
