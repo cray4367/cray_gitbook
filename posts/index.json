@@ -149,6 +149,6 @@
         ],
         "description": "An AWS-based lab walkthrough focused on investigating data exfiltration, compromised accounts, and persistence mechanisms using Splunk queries.",
         "file": "posts/awsraid.md",
-        "imageBase": "posts/"
+        "imageBase": "posts/attachment/"
     }
 ]
