@@ -1,7 +1,7 @@
 [
     {
         "id": "splunk-lab-part-1",
-        "title": "SIEM Investigation: Splunk Lab — Part 1",
+        "title": "SIEM Investigation: Splunk Lab - Part 1",
         "date": "2025-08-01",
         "category": "article",
         "tags": [
@@ -10,7 +10,7 @@
             "blue-team",
             "spl"
         ],
-        "description": "Walking through Splunk architecture, SPL basics, and setting up your first SIEM investigation — from forwarders to search heads.",
+        "description": "Walking through Splunk architecture, SPL basics, and setting up your first SIEM investigation - from forwarders to search heads.",
         "file": "content/Blogs/1 Lab Splunk- Part 1.md",
         "imageBase": "content/Blogs/attachment/"
     },
@@ -43,7 +43,7 @@
             "blue-team",
             "dfir"
         ],
-        "description": "A detailed walkthrough of the HTB Sherlock challenge — Holmes 2025-2: The Watchman's Residue. Covers DFIR investigation methodology.",
+        "description": "A detailed walkthrough of the HTB Sherlock challenge - Holmes 2025-2: The Watchman's Residue. Covers DFIR investigation methodology.",
         "file": "content/Sherlocks/Holmes 2/Holmes 2025 2 The Watchman's Residue.md",
         "imageBase": "content/Sherlocks/Holmes 2/attachment/"
     },
@@ -58,7 +58,7 @@
             "forensics",
             "blue-team"
         ],
-        "description": "Walkthrough of the HTB MangoBleed Sherlock challenge — a digital forensics investigation.",
+        "description": "Walkthrough of the HTB MangoBleed Sherlock challenge - a digital forensics investigation.",
         "file": "content/Sherlocks/Mangobleed/mangobleed.md",
         "imageBase": "content/Sherlocks/Mangobleed/attachment/"
     },
@@ -88,7 +88,7 @@
             "workflow",
             "setup"
         ],
-        "description": "A step-by-step guide to publishing your Obsidian notes on cray_gitbook — handling images, wikilinks, and frontmatter.",
+        "description": "A step-by-step guide to publishing your Obsidian notes on cray_gitbook - handling images, wikilinks, and frontmatter.",
         "file": "posts/obsidian-import-guide.md"
     },
     {
@@ -131,7 +131,7 @@
             "kql",
             "blue-team"
         ],
-        "description": "A full SIEM-based ransomware investigation walkthrough on KC7's JoJo's Hospital lab — tracing initial phishing, Cobalt Strike C2, credential theft, lateral movement, and file encryption using KQL in Microsoft Sentinel.",
+        "description": "A full SIEM-based ransomware investigation walkthrough on KC7's JoJo's Hospital lab - tracing initial phishing, Cobalt Strike C2, credential theft, lateral movement, and file encryption using KQL in Microsoft Sentinel.",
         "file": "posts/jojos-hospital-ransomware.md",
         "imageBase": "posts/attachment_jojos-hospital-ransomware/"
     },
@@ -163,7 +163,7 @@
             "sessions",
             "web-security"
         ],
-        "description": "Part 1: Cookies, sessions vs JWT vs hybrid auth, secure token storage with HttpOnly + SameSite, and React access/refresh flow — from both attacker and developer views.",
+        "description": "Part 1: Cookies, sessions vs JWT vs hybrid auth, secure token storage with HttpOnly + SameSite, and React access/refresh flow - from both attacker and developer views.",
         "file": "posts/secure-authentication-modern-web.md",
         "imageBase": "posts/attachment/"
     }

@@ -1,5 +1,5 @@
 /**
- * post.js — Single post renderer
+ * post.js - Single post renderer
  * Reads ?post=<id> URL param, fetches markdown, parses YAML frontmatter,
  * renders with marked.js + highlight.js, and builds a TOC.
  *
@@ -62,7 +62,7 @@ async function init() {
 
         // Update page title
         const title = frontmatter.title || meta.title || 'Untitled';
-        document.title = `${title} — cray_gitbook`;
+        document.title = `${title} - cray_gitbook`;
 
         // Render page
         renderPost(meta, frontmatter, content);
@@ -107,7 +107,7 @@ function renderPost(meta, fm, content) {
     });
 
     // Resolve image paths relative to the post's directory.
-    // Posts from Blogs-and-Writeups use attachment/foo.png — resolved via meta.imageBase.
+    // Posts from Blogs-and-Writeups use attachment/foo.png - resolved via meta.imageBase.
     const postDir = (meta.file || '').replace(/\/[^/]+$/, '/'); // e.g. "content/Blogs/"
     const imageBase = meta.imageBase || postDir; // fallback for legacy posts
 

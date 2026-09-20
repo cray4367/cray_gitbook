@@ -1,6 +1,6 @@
 ## Introduction
 
-This is basically the walkthrough of detection of a ransomware incident occurred at JoJo's hospital — not a real incident but a lab available on KC7.
+This is basically the walkthrough of detection of a ransomware incident occurred at JoJo's hospital - not a real incident but a lab available on KC7.
 
 **Initial Details:**
 > JoJo's Hospital in Lexington, Kentucky, recently faced a serious cyberattack that locked their important files. The hackers sent a message to the hospital asking for money to unlock the files. They gave a specific amount of time to pay.
@@ -19,7 +19,7 @@ Here they have named themselves as **Lock Byte**.
 
 ## Initial Analysis
 
-Since the attackers mentioned encryption, let us suppose the hospital is maintaining a SIEM — which in this case JoJo's hospital was. So let's see what the SIEM tells us.
+Since the attackers mentioned encryption, let us suppose the hospital is maintaining a SIEM - which in this case JoJo's hospital was. So let's see what the SIEM tells us.
 
 We can use the following query:
 
@@ -39,7 +39,7 @@ In order to know how bad this could be, we will use `count` to list the number o
 
 ![](attachment_jojos-hospital-ransomware/Pasted_image_20260409161812.png)
 
-The file count is pretty high. Before we investigate how the attacker got in, let's find out how many endpoints have been compromised — we'll get the distinct hostnames from the table:
+The file count is pretty high. Before we investigate how the attacker got in, let's find out how many endpoints have been compromised - we'll get the distinct hostnames from the table:
 
 ![](attachment_jojos-hospital-ransomware/Pasted_image_20260409162450.png)
 
@@ -56,13 +56,13 @@ The hash is:
 97c348e95c8a8aeb8808f76434d73a92bbcb6b4586788365762b22624990b018
 ```
 
-We also find other useful info: the hostname and path where it was created — this could be really helpful in further investigation.
+We also find other useful info: the hostname and path where it was created - this could be really helpful in further investigation.
 
 Now let us see if this file was present on other systems as well:
 
 ![](attachment_jojos-hospital-ransomware/Pasted_image_20260409163348.png)
 
-Interesting — this file is only present on one hostname: **`AMFB-MACHINE`**.
+Interesting - this file is only present on one hostname: **`AMFB-MACHINE`**.
 
 ---
 
@@ -99,7 +99,7 @@ The syntax for checking logs between a time frame is:
 
 ![](attachment_jojos-hospital-ransomware/Pasted_image_20260409164742.png)
 
-We have 14 processes running between that time period. Let's investigate them — if we check the `process_commandline` we find a suspicious process named **"spread ransomware"**:
+We have 14 processes running between that time period. Let's investigate them - if we check the `process_commandline` we find a suspicious process named **"spread ransomware"**:
 
 ![](attachment_jojos-hospital-ransomware/Pasted_image_20260410000415.png)
 
@@ -142,7 +142,7 @@ Now let's check how many requests these attacker IPs made to our systems:
 
 ![](attachment_jojos-hospital-ransomware/Pasted_image_20260410004504.png)
 
-**37 requests** — that's a lot. Let's check what those requests look like:
+**37 requests** - that's a lot. Let's check what those requests look like:
 
 ![](attachment_jojos-hospital-ransomware/Pasted_image_20260410004645.png)
 
@@ -162,7 +162,7 @@ We have a log from the malicious IP:
 
 ![](attachment_jojos-hospital-ransomware/Pasted_image_20260410005240.png)
 
-**Username: `andavis`** — and the IP the threat actor used is external.
+**Username: `andavis`** - and the IP the threat actor used is external.
 
 ![](attachment_jojos-hospital-ransomware/Pasted_image_20260410005402.png)
 
@@ -170,13 +170,13 @@ Checking the Employees table for this username confirms a different IP is associ
 
 ---
 
-## Part 2 — Phishing & Lateral Movement
+## Part 2 - Phishing & Lateral Movement
 
 Now we know Anthony Davis's account is related to the attack. One important new piece of information:
 
 ![](attachment_jojos-hospital-ransomware/Pasted_image_20260410172955.png)
 
-**Raising Cane's** (the fast food chain) is mentioned as popular among hospital employees, and some employees mentioned a fake sponsored page — `raisinkanes.com` — trying to impersonate the real `raisingcanes.com`. The title in the sponsored domain also mismatches its URL.
+**Raising Cane's** (the fast food chain) is mentioned as popular among hospital employees, and some employees mentioned a fake sponsored page - `raisinkanes.com` - trying to impersonate the real `raisingcanes.com`. The title in the sponsored domain also mismatches its URL.
 
 Let's investigate how many users accessed the fake domain by checking `OutboundNetworkEvents`:
 
@@ -186,7 +186,7 @@ Around **26 requests**:
 
 ![](attachment_jojos-hospital-ransomware/Pasted_image_20260410173713.png)
 
-Requests came from **24 different IP addresses** — very bad. We need to check if any credentials were submitted. When users clicked the URL, they were redirected to:
+Requests came from **24 different IP addresses** - very bad. We need to check if any credentials were submitted. When users clicked the URL, they were redirected to:
 
 ![](attachment_jojos-hospital-ransomware/Pasted_image_20260410174105.png)
 
@@ -200,7 +200,7 @@ Let's check for any files downloaded from the phishing site:
 
 ![](attachment_jojos-hospital-ransomware/Pasted_image_20260410174349.png)
 
-Checking for common file types — we find a hit for a `.docx` file:
+Checking for common file types - we find a hit for a `.docx` file:
 **`Raisin_Kane_Promo_Offer.docx`**
 
 We also find a PDF:
@@ -225,7 +225,7 @@ We can further get the file hash and check it on threat intel platforms like Vir
 
 ![](attachment_jojos-hospital-ransomware/Pasted_image_20260410175108.png)
 
-Looking at the top two logs for this machine — just after the file was downloaded, another file appears: **`cobalt-strike`**.
+Looking at the top two logs for this machine - just after the file was downloaded, another file appears: **`cobalt-strike`**.
 
 > **Cobalt Strike** is a commercial penetration testing and red team tool used to simulate real cyberattacks. Its presence here is a huge red flag.
 
@@ -284,7 +284,7 @@ ProcessEvents
 
 ![](attachment_jojos-hospital-ransomware/Pasted_image_20260410181949.png)
 
-The attacker ran `advanced-ip-scanner.exe` — likely to map out the hospital's network infrastructure.
+The attacker ran `advanced-ip-scanner.exe` - likely to map out the hospital's network infrastructure.
 
 ---
 

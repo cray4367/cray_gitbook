@@ -433,7 +433,7 @@ button {
   margin: 0 auto;
   padding: 0 1.5rem;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr;
   gap: 3rem;
   align-items: center;
   position: relative;
@@ -1577,10 +1577,6 @@ button {
 @media (max-width: 900px) {
   .hero-inner {
     grid-template-columns: 1fr;
-  }
-
-  .hero-card {
-    display: none;
   }
 
   .post-layout {

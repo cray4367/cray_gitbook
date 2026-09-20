@@ -6,7 +6,7 @@ This guide explains how to publish your Obsidian notes as blog posts on cray_git
 
 ## How It Works
 
-Your Obsidian notes are standard Markdown files. The blog reads them directly —  
+Your Obsidian notes are standard Markdown files. The blog reads them directly -  
 you just need to:
 1. Add YAML frontmatter to the note
 2. Copy the file into `posts/`
@@ -15,7 +15,7 @@ you just need to:
 
 ---
 
-## Step 1 — Add Frontmatter to Your Note
+## Step 1 - Add Frontmatter to Your Note
 
 Open the note in Obsidian and add this block at the **very top** of the file:
 
@@ -35,7 +35,7 @@ author: Akshat
 
 ---
 
-## Step 2 — Handle Images
+## Step 2 - Handle Images
 
 Obsidian uses its own image syntax: `![[image.png]]`  
 This does **not** render in the blog. You need to convert to standard Markdown:
@@ -53,7 +53,7 @@ Then copy all referenced images to `posts/images/`.
 
 ---
 
-## Step 3 — Copy the Note
+## Step 3 - Copy the Note
 
 ```bash
 # Copy your note
@@ -69,7 +69,7 @@ Name the file with lowercase-and-hyphens only (no spaces):
 
 ---
 
-## Step 4 — Register in index.json
+## Step 4 - Register in index.json
 
 Open `posts/index.json` and add an entry for your note:
 
@@ -91,17 +91,17 @@ The `id` must match the filename (without `.md`).
 
 ---
 
-## Step 5 — Preview Locally
+## Step 5 - Preview Locally
 
 ```bash
 cd /home/akshat/Downloads/cray_blogs
 python3 -m http.server 8080
-# Open http://localhost:8080/blog.html — your post should appear
+# Open http://localhost:8080/blog.html - your post should appear
 ```
 
 ---
 
-## Step 6 — Publish
+## Step 6 - Publish
 
 ```bash
 git add .
@@ -135,7 +135,7 @@ If you import notes often, you can create a shell script:
 
 ```bash
 #!/bin/bash
-# obsidian-to-blog.sh — quick import helper
+# obsidian-to-blog.sh - quick import helper
 # Usage: ./obsidian-to-blog.sh "My Note Title" /path/to/note.md
 
 TITLE="$1"

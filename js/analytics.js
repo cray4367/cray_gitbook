@@ -1,5 +1,5 @@
 /**
- * analytics.js — GA4 pageviews + click tracking (+ optional Clarity heatmaps).
+ * analytics.js - GA4 pageviews + click tracking (+ optional Clarity heatmaps).
  * Include on every page: <script src="js/analytics.js"></script>
  *
  * Reports to look at in GA4:
@@ -62,7 +62,7 @@ function linkText(el) {
     return t.slice(0, 80);
 }
 
-// ─── Click tracking (delegated — covers current + future content) ──────
+// ─── Click tracking (delegated - covers current + future content) ──────
 document.addEventListener('click', function (e) {
     // 1. Blog post cards (whole card is clickable)
     const card = e.target.closest ? e.target.closest('.post-card') : null;
@@ -101,7 +101,7 @@ document.addEventListener('click', function (e) {
         try {
             const url = new URL(t.href, window.location.href);
             isOutbound = isOutbound || (url.hostname !== window.location.hostname);
-        } catch (err) { /* relative URL — internal */ }
+        } catch (err) { /* relative URL - internal */ }
         if (isOutbound) {
             trackEvent('outbound_click', { link_url: href.slice(0, 200), link_text: text, section: section });
         } else {

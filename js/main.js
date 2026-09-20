@@ -1,5 +1,5 @@
 /**
- * main.js — Home page + Blog listing logic
+ * main.js - Home page + Blog listing logic
  * Loads posts/index.json and renders cards.
  */
 
