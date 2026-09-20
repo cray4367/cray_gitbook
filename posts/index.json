@@ -150,5 +150,21 @@
         "description": "An AWS-based lab walkthrough focused on investigating data exfiltration, compromised accounts, and persistence mechanisms using Splunk queries.",
         "file": "posts/awsraid.md",
         "imageBase": "posts/attachment/"
+    },
+    {
+        "id": "secure-authentication-modern-web",
+        "title": "A Deep Dive into Secure Authentication for the Modern Web",
+        "date": "2026-09-20",
+        "category": "article",
+        "tags": [
+            "authentication",
+            "cookies",
+            "jwt",
+            "sessions",
+            "web-security"
+        ],
+        "description": "Part 1: Cookies, sessions vs JWT vs hybrid auth, secure token storage with HttpOnly + SameSite, and React access/refresh flow — from both attacker and developer views.",
+        "file": "posts/secure-authentication-modern-web.md",
+        "imageBase": "posts/attachment/"
     }
 ]
