@@ -45,7 +45,7 @@ async function init() {
 
     try {
         // Find post metadata from index
-        const indexRes = await fetch(POSTS_INDEX);
+        const indexRes = await fetch(`${POSTS_INDEX}?v=${Date.now()}`, { cache: 'no-store' });
         if (!indexRes.ok) throw new Error('Could not load post index');
         const posts = await indexRes.json();
 
@@ -53,7 +53,7 @@ async function init() {
         if (!meta) throw new Error(`Post "${postId}" not found in index`);
 
         // Fetch the markdown file
-        const mdRes = await fetch(meta.file);
+        const mdRes = await fetch(`${meta.file}?v=${Date.now()}`, { cache: 'no-store' });
         if (!mdRes.ok) throw new Error(`Could not fetch markdown: ${meta.file}`);
         const raw = await mdRes.text();
 

@@ -10,7 +10,7 @@ let allPosts = [];
 // ─── Fetch post index ──────────────────────────────────────────────
 async function loadPosts() {
   try {
-    const res = await fetch(POSTS_INDEX);
+    const res = await fetch(`${POSTS_INDEX}?v=${Date.now()}`, { cache: 'no-store' });
     if (!res.ok) throw new Error('Failed to load posts');
     allPosts = await res.json();
 
