@@ -72,9 +72,10 @@ function updateStats() {
 // ─── Post card HTML template ──────────────────────────────────────
 function postCardHTML(post) {
   const badgeClass = post.category === 'ctf' ? 'badge-ctf' : 'badge-article';
-  const badgeLabel = post.category === 'ctf' ? '🏴 CTF' : '📝 Article';
+  const badgeLabel = post.category === 'ctf' ? 'CTF Writeup' : 'Article';
 
   const tags = (post.tags || [])
+    .slice(0, 3)
     .map(t => `<span class="tag">#${t}</span>`)
     .join(' ');
 

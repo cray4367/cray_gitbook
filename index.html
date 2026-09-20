@@ -5,8 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>cray_gitbook — Security Research & Notes</title>
-  <meta name="description" content="Personal knowledge base, CTF writeups, and security research articles." />
-  <link rel="stylesheet" href="css/style.css?v=3" />
+  <meta name="description" content="Akshat Singh — VAPT, CTF writeups, and security research notes on web & API security." />
+  <link rel="stylesheet" href="css/style.css?v=5" />
 </head>
 
 <body>
@@ -56,9 +56,9 @@
           <span class="accent">Written Down.</span>
         </h1>
         <p class="hero-desc">
-          A collection of CTF writeups, informational articles, and research notes
-          on cybersecurity. Covering blue team operations, cryptography, web security,
-          and more — written to learn, shared to help.
+          A collection of penetration testing notes, CTF writeups, and security
+          research — covering web &amp; API security, OWASP Top 10, threat hunting,
+          and digital forensics. Written to learn, shared to help.
         </p>
         <div class="hero-actions">
           <a href="blog.html" class="btn btn-primary">Browse the Blog</a>
@@ -81,7 +81,17 @@
         </div>
       </div>
 
-      <div class="hero-card">📔</div>
+      <aside class="hero-card" aria-label="Profile summary">
+        <div class="hero-card-top">
+          <div class="hero-card-name">Akshat Singh</div>
+          <div class="hero-card-role">VAPT Intern · Osto</div>
+        </div>
+        <div class="hero-card-list">
+          <div><span>Focus</span><span>Web &amp; API Pentesting</span></div>
+          <div><span>Stack</span><span>Burp Suite · Python</span></div>
+          <div><span>Status</span><span class="hero-card-status">Open to work</span></div>
+        </div>
+      </aside>
     </div>
   </section>
 
@@ -112,22 +122,22 @@
         <div>
           <span class="section-eyebrow">About Me</span>
           <h2 class="section-title" style="text-align:left; margin-top:0.5rem;">
-            Aspiring SOC Analyst &amp; CTF Player
+            VAPT Intern &amp; Security Researcher
           </h2>
           <p style="color:var(--text-secondary); line-height:1.8; margin-bottom:1.35rem; font-size:0.95rem;">
-            B.Tech Cyber Security student at VIT Bhopal with hands-on SIEM investigation,
-            Splunk SPL querying, Sysmon log analysis, and full attack chain tracing —
-            credential dumping, LOLBins, and C2 activity. I document everything I learn
-            and publish it here as a public reference.
+            B.Tech Cyber Security student at VIT Bhopal (CGPA 8.94), currently doing
+            VAPT across web &amp; API engagements at Osto and previously building
+            ML-assisted SAST tooling at IIT Palakkad. CompTIA Security+ and eJPT
+            certified — I document everything I learn and publish it here.
           </p>
           <div class="chips">
-            <span class="chip">Splunk / SIEM</span>
-            <span class="chip">Incident Response</span>
-            <span class="chip">Threat Detection</span>
+            <span class="chip">Web &amp; API Pentesting</span>
+            <span class="chip">OWASP Top 10</span>
+            <span class="chip">Burp Suite</span>
             <span class="chip">MITRE ATT&amp;CK</span>
-            <span class="chip">CTF</span>
+            <span class="chip">SIEM / KQL</span>
             <span class="chip">Python</span>
-            <span class="chip">AWS</span>
+            <span class="chip">CTF</span>
           </div>
           <div style="margin-top:1.5rem;">
             <a href="about.html" class="btn btn-secondary">Full Profile →</a>
@@ -135,24 +145,24 @@
         </div>
         <div class="skills-grid" style="grid-template-columns: repeat(2, 1fr);">
           <div class="skill-card">
+            <div class="skill-icon">🔒</div>
+            <div class="skill-name">Web &amp; API Pentesting</div>
+            <div class="skill-desc">Burp Suite, Postman, OWASP Top 10</div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">🔬</div>
+            <div class="skill-name">Security Research</div>
+            <div class="skill-desc">SAST tooling, ML-assisted detection</div>
+          </div>
+          <div class="skill-card">
             <div class="skill-icon">📊</div>
-            <div class="skill-name">SIEM &amp; SOC</div>
-            <div class="skill-desc">Splunk, ELK, Sysmon, Wazuh EDR</div>
+            <div class="skill-name">SIEM &amp; DFIR</div>
+            <div class="skill-desc">Sentinel (KQL), Splunk, Sysmon</div>
           </div>
           <div class="skill-card">
-            <div class="skill-icon">🔵</div>
-            <div class="skill-name">Blue Team Ops</div>
-            <div class="skill-desc">Alert triage, log correlation, IR</div>
-          </div>
-          <div class="skill-card">
-            <div class="skill-icon">🏴</div>
-            <div class="skill-name">CTF Competition</div>
-            <div class="skill-desc">Forensics, Reversing, Web, Crypto</div>
-          </div>
-          <div class="skill-card">
-            <div class="skill-icon">🛡️</div>
-            <div class="skill-name">Web Security</div>
-            <div class="skill-desc">WAF, OWASP Top 10, Docker</div>
+            <div class="skill-icon">🏆</div>
+            <div class="skill-name">CTF &amp; Labs</div>
+            <div class="skill-desc">HTB, CyberDefenders, PicoCTF</div>
           </div>
         </div>
       </div>
@@ -200,8 +210,7 @@
       if (!e.target.closest('.nav')) document.getElementById('navLinks').classList.remove('open');
     });
   </script>
-  <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8E0668ECTY"></script>
+  <script src="js/analytics.js"></script>
 
 </body>
 
