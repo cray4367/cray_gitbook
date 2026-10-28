@@ -5,7 +5,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Post - cray_gitbook</title>
-    <link rel="stylesheet" href="css/style.css?v=5" />
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('cg-theme') ||
+                    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', t);
+            } catch (e) { }
+        })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="css/style.css?v=7" />
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" />
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
@@ -21,16 +32,17 @@
             <a href="index.html" class="nav-logo">cray_<span>gitbook</span></a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="blog.html">Blog</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
                 <li><a href="about.html">About</a></li>
+                <li><a href="blog.html" class="nav-cta">Browse posts</a></li>
             </ul>
             <div style="display:flex; align-items:center; gap:0.5rem;">
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
-                    <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    <svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
                     </svg>
-                    <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    <svg class="icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5" />
                         <line x1="12" y1="1" x2="12" y2="3" />
@@ -51,20 +63,20 @@
     </nav>
 
     <div class="page-wrapper">
-        <div id="loadingState" class="state-box" style="padding-top:8rem;">
-            <div class="state-icon">⏳</div>
-            <div class="state-msg">Loading post…</div>
+        <div id="loadingState" class="state-box" style="margin:6rem auto; max-width:560px; border:none; background:none;">
+            <div class="state-icon">...</div>
+            <div class="state-msg">Loading post</div>
         </div>
 
-        <div id="errorState" class="state-box hidden" style="padding-top:8rem;">
-            <div class="state-icon">⚠️</div>
+        <div id="errorState" class="state-box hidden" style="margin:6rem auto; max-width:560px;">
+            <div class="state-icon">!</div>
             <div class="state-msg" id="errorMsg">Post not found</div>
-            <div class="state-sub"><a href="blog.html" style="color:var(--accent)">← Browse all posts</a></div>
+            <div class="state-sub"><a href="blog.html" style="color:var(--link)">Browse all posts</a></div>
         </div>
 
         <div id="postLayout" class="post-layout hidden">
             <main>
-                <a href="blog.html" class="back-btn">← Back to Blog</a>
+                <a href="blog.html" class="back-btn">&larr; Back to blog</a>
                 <header class="post-header">
                     <div class="post-meta-row" id="postMetaRow"></div>
                     <h1 class="post-title" id="postTitle"></h1>
@@ -75,7 +87,7 @@
 
             <aside class="side-widget" id="sideWidget">
                 <div class="widget-card">
-                    <div class="widget-label">Recent Posts</div>
+                    <div class="widget-label">Recent posts</div>
                     <div class="widget-content" id="recentPostsList"></div>
                 </div>
             </aside>
@@ -84,14 +96,28 @@
 
     <footer class="footer">
         <div class="footer-inner">
-            <span class="nav-logo" style="font-size:1rem;">cray_<span style="color:var(--accent)">gitbook</span></span>
-            <div class="footer-links">
-                <a href="https://github.com/cray4367" target="_blank" rel="noopener">GitHub</a>
-                <a href="https://www.linkedin.com/in/akshat-singh-1311ca/" target="_blank" rel="noopener">LinkedIn</a>
-                <a href="mailto:sghakshat11@gmail.com">Email</a>
-                <a href="about.html">About</a>
+            <div class="footer-brand">
+                <a href="index.html" class="nav-logo">cray_<span>gitbook</span></a>
+                <p>Penetration testing notes, CTF writeups, and security research on web and API security.</p>
             </div>
-            <div class="footer-copy">&copy; 2026 cray_gitbook</div>
+            <div class="footer-cols">
+                <div class="footer-col">
+                    <div class="footer-heading">Site</div>
+                    <a href="index.html">Home</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="about.html">About</a>
+                </div>
+                <div class="footer-col">
+                    <div class="footer-heading">Connect</div>
+                    <a href="https://github.com/cray4367" target="_blank" rel="noopener">GitHub</a>
+                    <a href="https://www.linkedin.com/in/akshat-singh-1311ca/" target="_blank" rel="noopener">LinkedIn</a>
+                    <a href="mailto:sghakshat11@gmail.com">Email</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 cray_gitbook</span>
+            <span>Static site on GitHub Pages</span>
         </div>
     </footer>
 
@@ -101,16 +127,19 @@
             const root = document.documentElement;
             const THEME_KEY = 'cg-theme';
             function applyTheme(t) { root.setAttribute('data-theme', t); localStorage.setItem(THEME_KEY, t); }
-            const saved = localStorage.getItem(THEME_KEY);
-            applyTheme(saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
             document.getElementById('themeToggle').addEventListener('click', () => {
                 applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
             });
+            // Nav
+            document.getElementById('navToggle').addEventListener('click', () =>
+                document.getElementById('navLinks').classList.toggle('open'));
+            document.addEventListener('click', e => {
+                if (!e.target.closest('.nav')) document.getElementById('navLinks').classList.remove('open');
+            });
         })();
-        document.getElementById('navToggle').addEventListener('click', () =>
-            document.getElementById('navLinks').classList.toggle('open'));
     </script>
     <script src="js/analytics.js"></script>
+
 </body>
 
 </html>

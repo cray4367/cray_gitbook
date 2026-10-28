@@ -127,7 +127,7 @@ function renderPost(meta, fm, content) {
             }
         }
         const titleAttr = title ? ` title="${escHtml(title)}"` : '';
-        return `<img src="${escHtml(resolvedSrc)}" alt="${escHtml(alt || '')}"${titleAttr} loading="lazy" decoding="async" style="max-width:100%;border-radius:8px;margin:1.25rem 0;box-shadow:var(--shadow-sm);" />`;
+        return `<img src="${escHtml(resolvedSrc)}" alt="${escHtml(alt || '')}"${titleAttr} loading="lazy" decoding="async" style="max-width:100%;border-radius:12px;margin:1.25rem 0;" />`;
     };
 
     // Wrap tables for horizontal scroll
@@ -141,7 +141,7 @@ function renderPost(meta, fm, content) {
     // Fill in DOM elements
     const category = fm.category || meta.category || 'article';
     const badgeClass = category === 'ctf' ? 'badge-ctf' : 'badge-article';
-    const badgeLabel = category === 'ctf' ? '🏴 CTF Writeup' : '📝 Article';
+    const badgeLabel = category === 'ctf' ? 'CTF Writeup' : 'Article';
     const tags = (fm.tags || meta.tags || []).map(t => `<span class="tag">#${t}</span>`).join(' ');
     const date = fm.date || meta.date || '';
 

@@ -27,7 +27,7 @@ async function loadPosts() {
   } catch (err) {
     console.error('Error loading posts:', err);
     const grid = document.getElementById('postsGrid') || document.getElementById('featuredPosts');
-    if (grid) grid.innerHTML = `<div class="state-box"><div class="state-icon">⚠️</div><div class="state-msg">Could not load posts</div><div class="state-sub">${err.message}</div></div>`;
+    if (grid) grid.innerHTML = `<div class="state-box"><div class="state-icon">!</div><div class="state-msg">Could not load posts</div><div class="state-sub">${err.message}</div></div>`;
   }
 }
 
@@ -37,7 +37,7 @@ function renderFeatured() {
   const posts = allPosts.slice(0, 3);
   container.innerHTML = posts.length
     ? posts.map(p => postCardHTML(p)).join('')
-    : `<div class="state-box"><div class="state-icon">📝</div><div class="state-msg">No posts yet</div></div>`;
+    : `<div class="state-box"><div class="state-icon">//</div><div class="state-msg">No posts yet</div></div>`;
 }
 
 // ─── Render all (blog page) ────────────────────────────────────────

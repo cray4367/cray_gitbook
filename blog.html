@@ -6,7 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blog - cray_gitbook</title>
     <meta name="description" content="All posts - CTF writeups, security research, and informational articles." />
-    <link rel="stylesheet" href="css/style.css?v=5" />
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('cg-theme') ||
+                    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', t);
+            } catch (e) { }
+        })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="css/style.css?v=7" />
 </head>
 
 <body>
@@ -18,14 +29,15 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="blog.html" class="active">Blog</a></li>
                 <li><a href="about.html">About</a></li>
+                <li><a href="blog.html" class="nav-cta">Browse posts</a></li>
             </ul>
             <div style="display:flex; align-items:center; gap:0.5rem;">
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
-                    <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    <svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
                     </svg>
-                    <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    <svg class="icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5" />
                         <line x1="12" y1="1" x2="12" y2="3" />
@@ -45,55 +57,70 @@
         </div>
     </nav>
 
-    <div class="page-wrapper">
-        <div class="container" style="padding-top: 3rem; padding-bottom: 0.5rem;">
+    <main class="page-wrapper">
+        <div class="container page-head">
             <span class="section-eyebrow">Archive</span>
-            <h1 class="section-title" style="text-align:left; margin-top:0.5rem;">All Posts</h1>
-            <p class="section-sub">CTF writeups, research notes, and informational articles.</p>
+            <h1 class="page-head-title">All posts.</h1>
+            <p class="page-head-sub">CTF writeups, research notes, and informational articles.</p>
         </div>
 
-        <div class="container" style="padding-top: 1.75rem;">
+        <div class="container" style="padding-top: 8px;">
             <div class="search-area">
                 <div class="search-bar">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="11" cy="11" r="8" />
                         <path d="m21 21-4.35-4.35" />
                     </svg>
-                    <input type="text" class="search-input" id="searchInput" placeholder="Search posts…"
+                    <input type="text" class="search-input" id="searchInput" placeholder="Search posts"
                         autocomplete="off" />
                 </div>
                 <div class="filter-tabs" id="filterTabs">
                     <button class="filter-tab active" data-category="all">All</button>
                     <button class="filter-tab" data-category="article">Articles</button>
-                    <button class="filter-tab" data-category="ctf">CTF Writeups</button>
+                    <button class="filter-tab" data-category="ctf">CTF writeups</button>
                 </div>
             </div>
         </div>
 
         <div class="container section-sm">
-            <div id="postCount" style="font-size:0.82rem; color:var(--text-muted); margin-bottom:1.25rem;"></div>
+            <div class="post-count" id="postCount"></div>
             <div class="posts-grid" id="postsGrid">
-                <div class="skeleton" style="height:200px; border-radius:12px;"></div>
-                <div class="skeleton" style="height:200px; border-radius:12px;"></div>
+                <div class="skeleton" style="height:230px; border-radius:12px;"></div>
+                <div class="skeleton" style="height:230px; border-radius:12px;"></div>
+                <div class="skeleton" style="height:230px; border-radius:12px;"></div>
             </div>
             <div id="emptyState" class="state-box hidden">
-                <div class="state-icon">🔍</div>
+                <div class="state-icon">//</div>
                 <div class="state-msg">No posts found</div>
                 <div class="state-sub">Try a different search term or category.</div>
             </div>
         </div>
-    </div>
+    </main>
 
     <footer class="footer">
         <div class="footer-inner">
-            <span class="nav-logo" style="font-size:1rem;">cray_<span style="color:var(--accent)">gitbook</span></span>
-            <div class="footer-links">
-                <a href="https://github.com/cray4367" target="_blank" rel="noopener">GitHub</a>
-                <a href="https://www.linkedin.com/in/akshat-singh-1311ca/" target="_blank" rel="noopener">LinkedIn</a>
-                <a href="mailto:sghakshat11@gmail.com">Email</a>
-                <a href="about.html">About</a>
+            <div class="footer-brand">
+                <a href="index.html" class="nav-logo">cray_<span>gitbook</span></a>
+                <p>Penetration testing notes, CTF writeups, and security research on web and API security.</p>
             </div>
-            <div class="footer-copy">&copy; 2026 cray_gitbook</div>
+            <div class="footer-cols">
+                <div class="footer-col">
+                    <div class="footer-heading">Site</div>
+                    <a href="index.html">Home</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="about.html">About</a>
+                </div>
+                <div class="footer-col">
+                    <div class="footer-heading">Connect</div>
+                    <a href="https://github.com/cray4367" target="_blank" rel="noopener">GitHub</a>
+                    <a href="https://www.linkedin.com/in/akshat-singh-1311ca/" target="_blank" rel="noopener">LinkedIn</a>
+                    <a href="mailto:sghakshat11@gmail.com">Email</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 cray_gitbook</span>
+            <span>Static site on GitHub Pages</span>
         </div>
     </footer>
 
@@ -109,8 +136,6 @@
             const root = document.documentElement;
             const THEME_KEY = 'cg-theme';
             function applyTheme(t) { root.setAttribute('data-theme', t); localStorage.setItem(THEME_KEY, t); }
-            const saved = localStorage.getItem(THEME_KEY);
-            applyTheme(saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
             document.getElementById('themeToggle').addEventListener('click', () => {
                 applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
             });
